@@ -1,0 +1,190 @@
+
+body {
+    background-color: #333333;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+
+    /* 画面の高さに合わせる */
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 2vh 16px;
+
+    /* 中央に配置したい */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vh;
+}
+
+h1 {
+    font-size: 7vh;
+    font-weight: bold;
+    color: gold;
+}
+
+/* 何回戦目か */
+.round {
+    font-size: 2.5vh;
+}
+
+/* 勝った数の表示 */
+.score {
+    font-size: 2.8vh;
+    font-weight: bold;
+}
+
+/* プレイヤー・バンカーの勝ち数を工夫したい */
+/* jsで動きを出す */
+/* ここでは区切るだけ */
+.player-score,
+.banker-score {
+    display: inline-block;
+    padding: 0.5vh 20px;
+    border: 2px solid white;
+}
+
+/* テーブルのデザイン */
+.table {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    padding: 2vh 20px;
+    background-color: #0b6623;
+    border: 12px solid #6b3e1f;
+}
+
+/* プレイヤー・バンカーのトランプを置く場所を区切る */
+.player-area,
+.banker-area {
+    flex: 8;
+    border: 3px solid white;
+    padding: 1vh 10px;
+}
+
+/* PLAYER・BANKERの文字について */
+.label-en {
+    display: block;
+    font-size: 1.8vh;
+    color: gold;
+}
+
+/* プレイヤー・バンカーの文字について */
+.label {
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+/* カードを並べて表示 */
+/* display: flex で、中のトランプ2枚を横に並べる */
+.player-cards,
+.banker-cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 1vh 0;
+    aspect-ratio: 25 / 14;
+}
+
+/* トランプの画像サイズ */
+.player-cards img,
+.banker-cards img {
+    width: 40%;
+}
+
+/* 点数の文字 */
+.player-point,
+.banker-point {
+    font-size: 20px;
+    font-weight: bold;
+
+    line-height: 3.5vh;
+    height: 7vh;
+}
+
+/* 1回ごとの勝敗 */
+.result {
+    font-size: 4.5vh;
+    font-weight: bold;
+    height: 6vh;
+}
+
+/* ボタンの設定 */
+.deal {
+    font-size: 2.6vh;
+    font-weight: bold;
+    padding: 1.2vh 40px;
+    color: #6b3e1f;
+    background-color: gold;
+    border: none;
+    cursor: pointer;
+}
+
+/* ボタンにマウスをのせたとき、ホバーするようにする */
+.deal:hover {
+    background-color: #ffe866;
+}
+
+/* 最終結果 */
+.final {
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+
+/* チップの枚数を選ぶ場所 */
+.bet {
+    flex: 2;
+    min-width: 0;
+    align-self: center;
+    aspect-ratio: 1 / 2;
+    padding: 8px 4px;
+    border: 3px solid gold;
+    border-radius: 10px;
+    background-color: #084d1a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    /* 文字を縦に配置してシンプルにする */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* チップの数は見やすくする */
+.bet-number {
+    font-size: 30px;
+    color: gold;
+}
+
+.bet-help {
+    font-size: 14px;
+}
+
+/* 画面サイズに合わせて変化させる */
+@media (max-width: 560px) {
+    .table {
+        gap: 10px;
+        padding: 2vh 10px;
+        border-width: 8px;
+    }
+    
+    .bet {
+        font-size: 12px;
+    }
+
+    .bet-number {
+        font-size: 18px;
+    }
+
+    .bet-help {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バカラ</title>
+
+    <!-- ブラウザのデフォルトCSSを消す -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- そのあとに自分のCSSを読み込む -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>バカラ</h1>
+
+    <!-- round : 今が何回戦目か -->
+    <p class="round">「カードを配る」ボタンを押してスタート！！</p>
+
+    <!-- score ： 今持っているチップの枚数を表示 -->
+    <p class="score">所持チップ 10枚</p>
+
+    <div class="table">
+
+        <!-- ===== チップの数を決める場所 ===== -->
+        <button class="bet">
+            <span class="bet-title">枚数</span>
+            <span class="bet-number">1枚</span>
+            <span class="bet-help">タップ</span>
+        </button>
+
+        <!-- ===== プレイヤーについて ===== -->
+        <div class="player-area">
+            <p class="label">
+                <span class="label-en">PLAYER</span>
+            プレイヤー</p>
+
+            <!-- プレイヤーのトランプが入る場所 -->
+            <div class="player-cards"></div>
+
+            <!-- プレイヤーの点数を表示する場所 -->
+            <p class="player-point"></p>
+        </div>
+
+        <!-- ===== バンカーについて ===== -->
+        <div class="banker-area">
+            <p class="label">
+                <span class="label-en">BANKER</span>
+            バンカー</p>
+
+            <!-- バンカーのトランプが入る場所 -->
+            <div class="banker-cards"></div>
+
+            <!-- バンカーの点数を表示する場所 -->
+            <p class="banker-point"></p>
+        </div>
+
+    </div>
+
+
+    <!-- 1回ごとの勝敗を表示したい -->
+    <p class="result"></p>
+
+    <!-- 最初は「カードを配る」、勝負がついたら「次のゲームへ」に文字を変えたい -->
+    <button class="deal">カードを配る</button>
+
+    <!-- 3回戦が終わったあとの最終結果を表示する場所 -->
+    <p class="final"></p>
+
+    <!-- jQueryを読み込む！ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- JSを読み込む！ -->
+    <script src="js/script.js"></script>
+</body>
+</html>
