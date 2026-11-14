@@ -35,16 +35,6 @@ h1 {
     font-weight: bold;
 }
 
-/* プレイヤー・バンカーの勝ち数を工夫したい */
-/* jsで動きを出す */
-/* ここでは区切るだけ */
-.player-score,
-.banker-score {
-    display: inline-block;
-    padding: 0.5vh 20px;
-    border: 2px solid white;
-}
-
 /* テーブルのデザイン */
 .table {
     display: flex;
