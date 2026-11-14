@@ -17,7 +17,7 @@ let chip = startChip;
 // タップで変えられるようにしたい
 let bet = 1;
 // ゲームが終わったかどうか（終わったらtrueにする）
-let isGameOver = false;
+let GameFinish = false;
 // トランプの数字
 // 1枚目・2枚目を区別するために1, 2をつけた
 let bankerCard1 = 0;
@@ -28,7 +28,7 @@ let playerCard2 = 0;
 let bankerPoint = 0;
 let playerPoint = 0;
 // 「今、プレイヤーのカードをめくってよいか」を表す(Flipがcanかどうか？)
-// 最初はカードがないので、配れない（False）
+// 最初はカードがないので、めくれない（False）
 let canFlip = false;
 
 
@@ -36,13 +36,13 @@ let canFlip = false;
 // チップの場所をタップしたときの処理
 $(".bet").on("click", function () {
 
-  // カードを勝負の途中や、ゲームが終わったあとは変更できないように
-  if (canFlip === false && isGameOver === false) {
+  // チップの枚数を変更できるターンを限定する（トランプをめくる場面とゲーム終了後はダメ）
+  if (canFlip === false && GameFinish === false) {
 
     // 賭け数を1枚増やす
     bet = bet + 1;
 
-    // 持っているチップより多くは賭けられないので、超えたら1枚に戻す
+    // 持っているチップより多くは賭けられないので、超えたら1枚に戻すように
     if (bet > chip) {
       bet = 1;
     }
@@ -56,7 +56,7 @@ $(".bet").on("click", function () {
 // 「カードを配る」「次のゲームへ」ボタンを押したとき
 $(".deal").on("click", function () {
 
-  //canFlip がfalseのときにトランプを配る
+  //canFlipがfalseのときにトランプを配る
   if (canFlip === false) {
 
   // まだ3回戦が終わっていないときにトランプを配る
@@ -150,6 +150,7 @@ $(".player-cards").on("click", function () {
       $(".result").html("プレイヤーの勝ち！ +" + bet + "枚");
       $(".result").css("color", "#ff6b7a");
 
+      
       // バンカーの点数のほうが大きい場合
     } else if (playerPoint < bankerPoint) {
 
@@ -178,7 +179,7 @@ $(".player-cards").on("click", function () {
     // || ：「または」を表す！どちらか1つでも当てはまれば実行される！
     if (round === maxRound || chip === 0) {
       // 最終結果を出す！
-      isGameOver = true;
+      GameFinish = true;
 
       $(".deal").fadeOut(1000);
 
